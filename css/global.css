@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 
 :root {
   --primary-color: #41a67e;
   --secondary-color: #ffbe54;
   --dark-color: #2f2f2f;
-  --gray-color: #f3f3f3;
+  --gray-color: #f7f7f7;
 }
 
 * {
@@ -22,11 +23,13 @@ body {
 }
 
 .navigation {
-  background-color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  border: 4px solid white;
   padding: 15px;
   border-radius: 1.2rem;
   position: fixed;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   animation: idle 2s infinite ease-in;
 }
@@ -34,18 +37,45 @@ body {
 .navigation ul {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 0.6rem;
   list-style: none;
 }
 
-.navigation ul li a img {
-  width: 2rem;
+.navigation ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.navigation ul li a:hover {
+  background-color: var(--primary-color);
+  border-radius: 999px;
+  color: white;
+}
+
+.navigation ul li a.active {
+  background-color: var(--primary-color);
+  border-radius: 999px;
+  color: white;
 }
 
 .card {
-  background-color: var(--gray-color);
+  background-color: white;
   border-radius: 1.2em;
   padding: 20px;
+  box-shadow: 8px 29px 48px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 8px 29px 48px 4px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02) translateY(-5px);
 }
 
 .btn {
@@ -53,6 +83,104 @@ body {
   cursor: pointer;
   border-radius: 1.2em;
   text-decoration: none;
+}
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: splash-fade 2s ease-in-out 8s forwards;
+}
+
+.splash-screen .logo {
+  animation: splash-fade 2.5s reverse ease-in-out 4s forwards;
+  font-size: 6rem;
+  color: white;
+  opacity: 0;
+}
+
+.splash-screen .slogan {
+  animation: splash-fade 2.5s reverse ease-in-out 4.5s forwards;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  opacity: 0;
+  color: white;
+}
+
+.splash-screen .circle {
+  width: 100px;
+  height: 100px;
+  background-color: var(--primary-color);
+  position: absolute;
+  z-index: -1;
+  border-radius: 99em;
+  animation: bouncy 2s ease-in-out infinite,
+    splash-circle 2s ease-in-out 2s forwards;
+}
+
+@keyframes splash-fade {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes splash-circle {
+  0% {
+    scale: 1;
+    transform: translateY(0);
+  }
+  70% {
+    scale: 1;
+  }
+  100% {
+    scale: 20;
+  }
+}
+
+@keyframes bouncy {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, -20px);
+  }
+  30% {
+    transform: translate(0, 20px);
+  }
+  40% {
+    transform: translate(0, 15px);
+  }
+  50% {
+    transform: translate(0, -15px);
+  }
+  60% {
+    transform: translate(0, 10px);
+  }
+  70% {
+    transform: translate(0, -10px);
+  }
+  80% {
+    transform: translate(0, 7px);
+  }
+  90% {
+    transform: translate(0, -7px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /* UTILITY CLASS */
@@ -76,6 +204,10 @@ body {
 @media (min-width: 768px) {
   .container {
     padding: 0px 4rem;
+  }
+
+  .navigation ul {
+    gap: 1.3rem;
   }
 }
 

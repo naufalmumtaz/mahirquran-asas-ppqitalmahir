@@ -19,62 +19,65 @@ main .logo {
   font-size: 3rem;
 }
 
-main .panel {
+main .card {
   margin-top: 40px;
-  background-color: #ffffff;
   padding: 30px;
-  border-radius: 1.2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  box-shadow: 8px 29px 38px 15px rgba(0, 0, 0, 0.1);
 }
 
-main .panel .panel__field {
+main .panel__field {
   width: 100%;
 }
 
-main .panel .panel__field input {
+main .panel__field input {
   padding: 20px;
   background-color: var(--gray-color);
   width: 100%;
   border-radius: 1.2em;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid var(--gray-color);
 }
 
-main .panel .panel__field .panel__field__optional {
+main .panel__field input:hover,
+main .panel__field input:focus {
+  border: 2px solid var(--secondary-color);
+}
+
+main .panel__field .panel__field__optional {
   display: flex;
   justify-content: space-between;
 }
 
-main
-  .panel
-  .panel__field
-  .panel__field__optional
-  .panel__field__optional__rememberme {
+main .panel__field .panel__field__optional .panel__field__optional__rememberme {
   display: flex;
   gap: 10px;
   white-space: nowrap;
 }
 
-main .panel .panel__field .panel__field__optional a {
+main .panel__field .panel__field__optional a {
   text-decoration: none;
 }
 
-main .panel .panel__field .btn-submit {
+main .panel__field .btn-submit {
   background-color: var(--dark-color);
   display: block;
   width: 100%;
   color: white;
   margin-top: 20px;
   cursor: pointer;
-  border-radius: 1.2em;
-  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+main .panel__field .btn-submit:hover {
+  background-color: #5b5b5b;
 }
 
 /* TABLET UP */
 @media (min-width: 768px) {
-  main .panel {
+  main .card {
     min-width: 24rem;
   }
 }

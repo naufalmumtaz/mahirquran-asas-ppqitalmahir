@@ -114,4 +114,12 @@
 
 /* DESKTOP UP */
 @media (min-width: 992px) {
+  .dashboard
+    .dashboard__content__list
+    .dashboard__content__list__entries
+    .card
+    .card__body
+    .card__body__evaluation {
+    display: block;
+  }
 }

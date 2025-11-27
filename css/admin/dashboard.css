@@ -11,6 +11,39 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.dashboard .dashboard__content .dashboard__content__statistics-1 .card::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  z-index: 1;
+  background-color: var(--primary-color);
+  border-radius: 1.2em;
+  transition: all 0.3s ease-in-out;
+}
+
+.dashboard .dashboard__content .dashboard__content__statistics-1 .card * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard .dashboard__content .dashboard__content__statistics-1 .card:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.dashboard
+  .dashboard__content
+  .dashboard__content__statistics-1
+  .card:hover::before {
+  width: 100%;
 }
 
 .dashboard
@@ -18,9 +51,8 @@
   .dashboard__content__statistics-1
   .card
   .card__information
-  img {
-  width: 100%;
-  max-width: 5em;
+  i {
+  font-size: 3rem;
 }
 
 .dashboard
